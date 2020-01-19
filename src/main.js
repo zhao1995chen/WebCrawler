@@ -2,10 +2,13 @@ const fs = require('fs');
 const puppeteer = require('puppeteer');
 const cheerio = require('cheerio');
 const ignoreImgLoad = require('../lib/request/ignoreImgLoad');
+const config = {
+  isHeadless: true,
+};
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: false
+    headless: config.isHeadless
   });
   const page = await browser.newPage();
   const playerPage = await browser.newPage();
